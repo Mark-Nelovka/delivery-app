@@ -7,10 +7,10 @@ export default function ShopsPage() {
   return (
     <section>
       <Container>
-        <styles.ContentContainer>
+        <styles.ContentContainerShops>
           <Shops />
           <Goods />
-        </styles.ContentContainer>
+        </styles.ContentContainerShops>
       </Container>
     </section>
   );
