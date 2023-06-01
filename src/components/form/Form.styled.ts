@@ -4,7 +4,7 @@ export const FormContainer = styled.div`
   border: 1px solid grey;
   border-radius: 20px;
   padding: 20px;
-  width: 350px;
+  width:49%;
 `;
 
 export const Form = styled.form`
