@@ -24,7 +24,7 @@ export const ShopList = styled.ul`
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
-  height: 60vh;
+  max-height: 80vh;
   overflow: scroll;
   padding: 20px 20px 20px 20px;
 `;

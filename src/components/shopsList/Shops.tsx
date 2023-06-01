@@ -17,6 +17,11 @@ export const Shops = () => {
         <styles.ShopListItem>Hata</styles.ShopListItem>{" "}
         <styles.ShopListItem>Hata</styles.ShopListItem>{" "}
         <styles.ShopListItem>Hata</styles.ShopListItem>
+        <styles.ShopListItem>Hata</styles.ShopListItem>
+        <styles.ShopListItem>Hata</styles.ShopListItem>{" "}
+        <styles.ShopListItem>Hata</styles.ShopListItem>{" "}
+        <styles.ShopListItem>Hata</styles.ShopListItem>{" "}
+        <styles.ShopListItem>Hata</styles.ShopListItem>
       </styles.ShopList>
     </styles.ShopsContainer>
   );
