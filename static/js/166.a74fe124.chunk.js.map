@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/166.a74fe124.chunk.js","mappings":"0KAAe,SAASA,IACtB,OAAOC,EAAAA,EAAAA,KAAA,OAAAC,SAAK,aACd,C","sources":["pages/CartPage.tsx"],"sourcesContent":["export default function CartPage() {\n  return <div>Cart page</div>;\n}\n"],"names":["CartPage","_jsx","children"],"sourceRoot":""}
