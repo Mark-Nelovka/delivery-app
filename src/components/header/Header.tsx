@@ -14,6 +14,9 @@ export const Header = () => {
             <styles.NavigationItem>
               <Link to="/cart">Shopping cart</Link>
             </styles.NavigationItem>
+            <styles.NavigationItem>
+              <Link to="/history">History</Link>
+            </styles.NavigationItem>
           </styles.NavigationList>
         </nav>
       </Container>
