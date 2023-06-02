@@ -3,9 +3,10 @@ import * as styles from "./HistoryTable.styled";
 interface ICartItems {
   id: number;
   image: string;
-  amount: number;
+  price: number;
   label: string;
   count: number;
+  maxCount: number;
 }
 
 interface IHis {
@@ -26,16 +27,16 @@ export const HistoryTable = ({ history }: IHistoryTable) => {
           history.map((el, inx) => {
             return (
               <>
-                <styles.dateText>{el.date}</styles.dateText>
+                <styles.dateText key={inx}>{el.date}</styles.dateText>
                 {el.orders.map((it) => {
                   return (
-                    <styles.BascketItem>
+                    <styles.BascketItem key={it.id}>
                       <div>
                         <img src={it.image} alt="Alt" />
                       </div>
                       <styles.BascketItemInfo>
                         <p>{it.label}</p>
-                        <p>Price: {it.amount * it.count}</p>
+                        <p>Price: {it.price * it.count}</p>
                       </styles.BascketItemInfo>
                     </styles.BascketItem>
                   );
