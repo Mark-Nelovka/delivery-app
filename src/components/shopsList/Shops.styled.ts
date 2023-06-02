@@ -34,6 +34,7 @@ position: relative;
 
 interface IListItem {
   active: boolean;
+  disabled: boolean;
 }
 
 export const ShopListItem = styled.li`
@@ -54,7 +55,8 @@ export const ShopListItem = styled.li`
     background-color: rgba(39, 243, 97, 0.8);
     border-color: white;
   }
-  background-color: ${(props: IListItem) => props.active ? "#fff" : "rgba(39, 243, 97, 0.8)"};
+  pointer-events: ${(props: IListItem) => props.disabled ? "none" : "all"};
+  background-color: ${(props: IListItem) => props.disabled ? "#ccc" : "#fff"};
   border-color: ${(props: IListItem) => props.active ? "#000" : "rgba(39, 243, 97, 0.8)"};
 `;
 
