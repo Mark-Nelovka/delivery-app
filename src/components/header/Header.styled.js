@@ -12,31 +12,22 @@ export const NavigationList = styled.ul`
   font-weight: 600;
   font-style: normal;
   font-size: 24px;
-  & > li:first-child {
-    position: relative;
-    margin-right: 60px;
-  }
-  & > li:first-child::after {
-    content: "";
-    position: absolute;
-    width: 1px;
-    height: 30px;
-    border: 1px solid black;
-    margin-left: 30px;
-  }
 `;
 
 export const NavigationItem = styled.li`
   &:first-child {
     position: relative;
-    margin-right: 60px;
   }
-  &:first-child::after {
+  &:not(:last-child)::after {
     content: "";
     position: absolute;
     height: 30px;
     border: 1px solid black;
     margin-left: 30px;
+    margin-right: 30px;
+  }
+  &:not(:first-child) {
+    margin-left: 60px;
   }
   & > a {
     padding: 10px;
