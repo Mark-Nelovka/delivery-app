@@ -11,8 +11,9 @@ export interface IItems {
   goods: {
     id: number;
     image: string;
-    amount: number;
+    price: number;
     label: string;
+    maxCount: number;
   }[];
 }
 
