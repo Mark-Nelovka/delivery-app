@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdelivery_app=self.webpackChunkdelivery_app||[]).push([[820],{820:function(e,r,n){n.r(r),n.d(r,{default:function(){return i}});var u=n(329);function i(){return(0,u.jsx)("div",{children:"Error page"})}}}]);
+//# sourceMappingURL=820.d809481c.chunk.js.map
