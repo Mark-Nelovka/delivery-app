@@ -11,10 +11,6 @@ export default function CartPage() {
           <Form />
           <Basket />
         </styles.ContentContainerCart>
-        <styles.SubmitGoodsContainer>
-          <styles.TotalPrice>Total price: 2000</styles.TotalPrice>
-          <styles.SubmitButton>Submit order</styles.SubmitButton>
-        </styles.SubmitGoodsContainer>
       </Container>
     </section>
   );

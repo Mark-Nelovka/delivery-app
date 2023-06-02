@@ -29,6 +29,10 @@ export const ShopList = styled.ul`
   padding: 20px 20px 20px 20px;
 `;
 
+interface IListItem {
+  active: boolean;
+}
+
 export const ShopListItem = styled.li`
   font-size: 18px;
   font-weight: 500;
@@ -47,4 +51,6 @@ export const ShopListItem = styled.li`
     background-color: rgba(39, 243, 97, 0.8);
     border-color: white;
   }
+  background-color: ${(props: IListItem) => props.active ? "#fff" : "rgba(39, 243, 97, 0.8)"};
+  border-color: ${(props: IListItem) => props.active ? "#000" : "rgba(39, 243, 97, 0.8)"};
 `;
