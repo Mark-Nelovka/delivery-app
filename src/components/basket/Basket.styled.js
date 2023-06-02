@@ -71,3 +71,10 @@ export const BascketDecrementButton = styled.button`
   font-size: 35px;
   background-color: red;
 `;
+
+export const BascketEmptyBasket = styled.p`
+  font-size: 28px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+`;

@@ -36,7 +36,11 @@ export const Basket = () => {
               </styles.BascketItem>
             );
           })}
-        <p>You don't choose any products yet</p>
+        {goodsState.length === 0 && (
+          <styles.BascketEmptyBasket>
+            You don't choose any products yet
+          </styles.BascketEmptyBasket>
+        )}
       </styles.BascketList>
     </styles.BascketContainer>
   );
