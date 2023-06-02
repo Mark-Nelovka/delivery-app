@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
 import { saveGoods, decrementGoods } from "./basketOperations";
 
 // interface
@@ -30,7 +31,8 @@ const basketSlice = createSlice({
   initialState,
   reducers: {},
     extraReducers: {
-        [saveGoods.type]: (state,  {payload} : PayloadAction<IItems>) => {
+        [saveGoods.type]: (state, { payload }: PayloadAction<IItems>) => {
+            Notiflix.Notify.success(`${payload.label} added to basket!`)
            const checkProduct = state.goods.find((it) => it.id === payload.id);
             if (checkProduct) {
             state.goods = state.goods.map((el) => {
@@ -48,6 +50,7 @@ const basketSlice = createSlice({
             if (checkCount) {
                 state.goods = state.goods.map((el) => el.id === payload.id ? { ...el, count: payload.count - 1 } : el);
             } else {
+                 Notiflix.Notify.info(`${payload.label} deleted!`)
                state.goods = state.goods.filter((el) => el.id !== payload.id);
             }
         }

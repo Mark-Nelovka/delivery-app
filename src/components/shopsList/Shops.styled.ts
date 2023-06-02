@@ -7,6 +7,7 @@ export const ShopsContantContainer = styled.div`
 `;
 
 export const ShopsContainer = styled.div`
+position: relative;
   border: 2px solid grey;
   border-radius: 20px;
   padding: 20px 20px 20px 20px;
@@ -21,16 +22,19 @@ export const ShopsTitle = styled.p`
 `;
 
 export const ShopList = styled.ul`
+position: relative;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
   max-height: 80vh;
   overflow: scroll;
+  min-height: 70vh;
   padding: 20px 20px 20px 20px;
 `;
 
 interface IListItem {
   active: boolean;
+  disabled: boolean;
 }
 
 export const ShopListItem = styled.li`
@@ -51,6 +55,15 @@ export const ShopListItem = styled.li`
     background-color: rgba(39, 243, 97, 0.8);
     border-color: white;
   }
-  background-color: ${(props: IListItem) => props.active ? "#fff" : "rgba(39, 243, 97, 0.8)"};
+  pointer-events: ${(props: IListItem) => props.disabled ? "none" : "all"};
+  background-color: ${(props: IListItem) => props.disabled ? "#ccc" : "#fff"};
   border-color: ${(props: IListItem) => props.active ? "#000" : "rgba(39, 243, 97, 0.8)"};
+`;
+
+export const ShopErrorMessage = styled.p`
+font-size: 28px;
+font-weight: 700;
+letter-spacing: 1.1px;
+font-style: normal;
+text-align: center;
 `;

@@ -17,17 +17,24 @@ export interface IItems {
 }
 
 export default function ShopsPage() {
-  const [first, setFirst] = useState<IItems[]>([]);
+  const [data, setData] = useState<IItems[]>([]);
+  const [state, setState] = useState("idle");
   const [activeShop, setActiveShop] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/shops")
-      .then((res) => {
-        setActiveShop(JSON.parse(res.data.data)[0].shop_name);
-        setFirst(JSON.parse(res.data.data));
-      })
-      .catch((er) => console.log(er));
+    setState("loading");
+    async function getShops() {
+      try {
+        const result = await axios.get("http://localhost:8080/shops");
+        const parseResult = JSON.parse(result.data.data);
+        setActiveShop(parseResult[0].shop_name);
+        setState("success");
+        setData(parseResult);
+      } catch (error) {
+        setState("error");
+      }
+    }
+    getShops();
   }, []);
 
   const changeActiveStore = (e: React.MouseEvent) => {
@@ -40,11 +47,12 @@ export default function ShopsPage() {
       <Container>
         <styles.ContentContainerShops>
           <Shops
-            items={first}
+            items={data}
+            state={state}
             activeShop={activeShop}
             changeActiveStore={changeActiveStore}
           />
-          <Goods items={first} activeShop={activeShop} />
+          <Goods items={data} state={state} activeShop={activeShop} />
         </styles.ContentContainerShops>
       </Container>
     </section>
