@@ -14,16 +14,21 @@ export const GoodsList = styled.ul`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  /* min-height: 70vh; */
   padding: 20px;
   margin-right: -30px;
   margin-bottom: -20px;
 `;
 
+interface IItemProduct {
+  disabled: boolean;
+}
+
 export const GoodsItem = styled.li`
   max-width: calc(100% / 3 - 30px);
   margin-bottom: 20px;
-  padding: 10px;
+  opacity: ${(props: IItemProduct) => props.disabled ? 1 : .2};
+  pointer-events: ${(props: IItemProduct) => props.disabled ? "all" : "none"};
+  padding: 10px 10px 15px 10px;
   border: 1px solid black;
   border-radius: 20px;
   margin-right: 30px;
@@ -33,9 +38,13 @@ export const GoodsItem = styled.li`
 export const GoodsInfoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  & > p:nth-child(2) {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
 `;
 
 export const GoodsItemDetail = styled.p`

@@ -2,14 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 import { saveGoods, decrementGoods } from "./basketOperations";
 
-// interface
-
 interface IStateBasket {
     goods: {
         id: number,
         image: string,
         label: string,
-        amount: number
+        price: number,
+        maxCount: number,
         count: number
     }[];
 }
@@ -18,7 +17,8 @@ interface IItems {
         id: number,
         image: string,
         label: string,
-    amount: number,
+    price: number,
+    maxCount: number
     count: number
         }
 

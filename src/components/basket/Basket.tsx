@@ -12,13 +12,13 @@ export const Basket = () => {
         {goodsState.length > 0 &&
           goodsState.map((el) => {
             return (
-              <styles.BascketItem>
+              <styles.BascketItem key={el.id}>
                 <div>
                   <img src={el.image} alt="Alt" />
                 </div>
                 <styles.BascketItemInfo>
                   <p>{el.label}</p>
-                  <p>Price: {el.amount * el.count}</p>
+                  <p>Price: {el.price * el.count}</p>
                   <styles.BascketCounterContainer>
                     <styles.BascketDecrementButton
                       onClick={() => dispatch(decrementGoods(el))}

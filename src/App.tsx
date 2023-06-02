@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import ShopsPage from "./pages/ShopsPage";
 import { Header } from "./components/header/Header";

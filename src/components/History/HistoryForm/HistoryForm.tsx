@@ -26,17 +26,11 @@ export default function HistoryForm() {
         `http://localhost:8080/history?email=${info.email}&phone=${info.phone}`
       )
       .then((res) => {
-        // const qwe = res.data.data.map((el: any) => {
-        //   return el.orders;
-        // });
-        // console.log(res.data.data);
-        // console.log(qwe);
         setHistory(res.data.data);
-        // setActiveShop(JSON.parse(res.data.data)[0].shop_name);
-        // setFirst(JSON.parse(res.data.data));
       })
       .catch((er) => console.log(er));
   };
+
   return (
     <styles.FormContainer>
       <styles.Form onSubmit={handleSubmitForm}>

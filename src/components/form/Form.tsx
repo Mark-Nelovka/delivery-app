@@ -93,7 +93,7 @@ export const Form = () => {
             Total price:
             {goodsState
               .reduce((acc, el) => {
-                return (acc += el.amount * el.count);
+                return (acc += el.price * el.count);
               }, 0)
               .toFixed(2)}
           </styles.TotalPrice>

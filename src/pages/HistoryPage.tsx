@@ -8,8 +8,9 @@ import { createContext, useContext } from "react";
 interface ICartItems {
   id: number;
   image: string;
-  amount: number;
+  price: number;
   label: string;
+  maxCount: number;
   count: number;
 }
 
