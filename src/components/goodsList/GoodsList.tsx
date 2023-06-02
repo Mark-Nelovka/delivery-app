@@ -2,20 +2,22 @@ import { IItems } from "../../pages/ShopsPage";
 import { useAppDispatch } from "../../redux/hook";
 import { saveGoods } from "../../redux/basket/basketOperations";
 import * as styles from "./Goods.styled";
+import { Loader } from "../loader/Loader";
 
 interface IGoods {
   items: IItems[];
   activeShop: string;
+  state: string;
 }
 
-export const Goods = ({ items, activeShop }: IGoods) => {
+export const Goods = ({ items, activeShop, state }: IGoods) => {
   const dispatch = useAppDispatch();
 
   return (
     <styles.GoodsContentContainer>
-      <styles.GoodsList>
-        {items.length &&
-          items
+      {items.length > 0 && (
+        <styles.GoodsList>
+          {items
             .filter((it) => it.shop_name === activeShop)[0]
             .goods.map((el, ind) => {
               return (
@@ -38,16 +40,14 @@ export const Goods = ({ items, activeShop }: IGoods) => {
                 </styles.GoodsItem>
               );
             })}
-
-        {/* <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem>
-        <styles.GoodsItem></styles.GoodsItem> */}
-      </styles.GoodsList>
+        </styles.GoodsList>
+      )}
+      {state === "loading" && <Loader />}
+      {state === "error" && (
+        <styles.GoodsErrorMessage>
+          Something went wrong. Please, try again leter
+        </styles.GoodsErrorMessage>
+      )}
     </styles.GoodsContentContainer>
   );
 };

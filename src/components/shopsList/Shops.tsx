@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IItems } from "../../pages/ShopsPage";
+import { Loader } from "../loader/Loader";
 import * as styles from "./Shops.styled";
 
 interface IShops {
   items: IItems[];
   changeActiveStore: (e: React.MouseEvent) => void;
   activeShop: string;
+  state: string;
 }
 
-export const Shops = ({ items, changeActiveStore, activeShop }: IShops) => {
-  // useEffect(() => {
-  //   if (items.length) {
-  //     changeActiveStore(items[0].shop_name);
-  //   }
-  // }, [items]);
-
+export const Shops = ({
+  items,
+  changeActiveStore,
+  activeShop,
+  state,
+}: IShops) => {
   return (
     <styles.ShopsContainer>
       <styles.ShopsTitle>Shops: </styles.ShopsTitle>
-      <styles.ShopList onClick={changeActiveStore}>
-        {items.length &&
-          items.map((el) => {
+      {items.length > 0 && (
+        <styles.ShopList onClick={changeActiveStore}>
+          {items.map((el) => {
             return (
               <styles.ShopListItem
                 id={el.shop_name}
@@ -31,7 +32,14 @@ export const Shops = ({ items, changeActiveStore, activeShop }: IShops) => {
               </styles.ShopListItem>
             );
           })}
-      </styles.ShopList>
+        </styles.ShopList>
+      )}
+      {state === "loading" && <Loader />}
+      {state === "error" && (
+        <styles.ShopErrorMessage>
+          Something went wrong. Please, try again leter
+        </styles.ShopErrorMessage>
+      )}
     </styles.ShopsContainer>
   );
 };
