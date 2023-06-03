@@ -2,7 +2,6 @@
   "name": "delivery-app",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://Mark-Nelovka.github.io/delivery-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
