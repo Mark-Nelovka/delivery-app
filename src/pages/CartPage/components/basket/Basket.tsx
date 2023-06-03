@@ -1,8 +1,8 @@
-import { decrementGoods, saveGoods } from "../../redux/basket/basketOperations";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHook";
+import { decrementGoods, saveGoods } from "@redux/basket/basketOperations";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHook";
 import * as styles from "./Basket.styled";
 
-export const Basket = () => {
+function Basket() {
   const goodsState = useAppSelector((state) => state.basket.goods);
   const goodsStateTest = useAppSelector((state) => state.basket);
   const dispatch = useAppDispatch();
@@ -67,4 +67,6 @@ export const Basket = () => {
       </styles.BascketList>
     </styles.BascketContainer>
   );
-};
+}
+
+export default Basket;

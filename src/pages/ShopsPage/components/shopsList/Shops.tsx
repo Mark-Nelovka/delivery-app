@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { IItems } from "../../pages/ShopsPage";
-import { useAppSelector } from "../../hooks/reduxHook";
-import { Loader } from "../loader/Loader";
+import { IItems } from "../../ShopsPage";
+import { useAppSelector } from "@hooks/reduxHook";
+import { Loader } from "@general/loader/Loader";
 import * as styles from "./Shops.styled";
 
 interface IShops {
@@ -11,12 +11,12 @@ interface IShops {
   state: string;
 }
 
-export const Shops = ({
+export default function Shops({
   items,
   changeActiveStore,
   activeShop,
   state,
-}: IShops) => {
+}: IShops) {
   const [nameOnlyShopUse, setNameOnlyShopUse] = useState("");
   const basketItems = useAppSelector((state) => state.basket);
 
@@ -59,4 +59,4 @@ export const Shops = ({
       )}
     </styles.ShopsContainer>
   );
-};
+}

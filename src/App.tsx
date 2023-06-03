@@ -1,10 +1,16 @@
 import React, { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import ShopsPage from "./pages/ShopsPage";
-import { Header } from "./components/header/Header";
-const CartPage = lazy(() => import("./pages/CartPage" /* Cart page */));
-const ErrorPage = lazy(() => import("./pages/ErrorPage" /* Error page */));
-const HistoryPage = lazy(() => import("./pages/HistoryPage" /* Error page */));
+import ShopsPage from "./pages/ShopsPage/ShopsPage";
+import { Header } from "./general/header/Header";
+const CartPage = lazy(
+  () => import("./pages/CartPage/CartPage" /* Cart page */)
+);
+const ErrorPage = lazy(
+  () => import("./pages/ErrorPage/ErrorPage" /* Error page */)
+);
+const HistoryPage = lazy(
+  () => import("./pages/HistoryPage/HistoryPage" /* Error page */)
+);
 
 function App() {
   return (

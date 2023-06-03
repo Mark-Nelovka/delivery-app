@@ -11,24 +11,16 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-// import shopsReducer from './news/newsSlice';
 import basketReducer from "./basket/basketSlice";
-
-// const newsPersistConfig = {
-//   key: 'news',
-//   storage,
-// };
 
 const basketPersistConfig = {
   key: 'basket',
   storage,
 };
 
-// const NewsPersistedReducer = persistReducer(newsPersistConfig, newsReducer);
 const BasketPersistConfig = persistReducer(basketPersistConfig, basketReducer);
 
 const rootReducer = combineReducers({ 
-    // news: NewsPersistedReducer,
     basket: BasketPersistConfig
 })
 

@@ -1,3 +1,8 @@
+Before run to app you need create file (.env) in root app with this parametr:
+REACT_APP_PATH_BACKEND=https://plum-proud-camel.cyclic.app
+After that you can open terminal and run to command npm start
+App will be open in url: http://localhost:3000
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,9 +1,8 @@
-import { Shops } from "../components/shopsList/Shops";
-import * as styles from "./ShopsPage.styled";
-import { Container } from "../styles/Container.styled";
-import { Goods } from "../components/goodsList/GoodsList";
 import { useEffect, useState } from "react";
-import getShopsWithProducts from "../api/getShops";
+import { Shops, Goods } from "./components";
+import getShopsWithProducts from "@api/getShops";
+import { Container } from "@styles/Container.styled";
+import * as styles from "./ShopsPage.styled";
 
 export interface IItems {
   shop_id: number;

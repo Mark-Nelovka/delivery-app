@@ -1,11 +1,11 @@
-import * as styles from "./Form.styled";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHook";
 import React, { useState } from "react";
 import Notiflix from "notiflix";
-import createOrderForUser from "../../api/createOrder";
-import { clearGoods } from "../../redux/basket/basketOperations";
+import { clearGoods } from "@redux/basket/basketOperations";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHook";
+import createOrderForUser from "@api/createOrder";
+import * as styles from "./Form.styled";
 
-export const Form = () => {
+function Form() {
   const goodsState = useAppSelector((state) => state.basket.goods);
   const dispatch = useAppDispatch();
   const [info, setInfo] = useState({
@@ -47,6 +47,12 @@ export const Form = () => {
       return;
     }
     Notiflix.Notify.success("Thank's for your order. We call you soon");
+    setInfo({
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+    });
     dispatch(
       clearGoods({
         shop_id: 0,
@@ -112,4 +118,6 @@ export const Form = () => {
       </styles.Form>
     </styles.FormContainer>
   );
-};
+}
+
+export default Form;

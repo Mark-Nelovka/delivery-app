@@ -1,5 +1,5 @@
-import ErrorImage from "../assets/images/Error.jpeg";
-import { Container } from "../styles/Container.styled";
+import ErrorImage from "@assets/images/Error.jpeg";
+import { Container } from "@styles/Container.styled";
 import * as styles from "./Error.styled";
 
 export default function ErrorPage() {

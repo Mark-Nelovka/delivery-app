@@ -51,12 +51,6 @@ export const SubmitGoodsContainer = styled.div`
   justify-content: flex-end;
 `;
 
-export const TotalPrice = styled.p`
-  font-size: 30px;
-  font-weight: 700;
-  font-style: normal;
-`;
-
 export const SubmitButton = styled.button`
   border-radius: 5px;
   background-color: aqua;

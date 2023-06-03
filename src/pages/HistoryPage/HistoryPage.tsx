@@ -1,9 +1,8 @@
 import { useState } from "react";
-import HistoryForm from "../components/History/HistoryForm/HistoryForm";
-import { HistoryTable } from "../components/History/HistoryTable/HistoryTable";
-import { Container } from "../styles/Container.styled";
+import { IHis, MyGlobalContext } from "@hooks/contextHook";
+import { HistoryTable, HistoryForm } from "./components";
+import { Container } from "@styles/Container.styled";
 import * as styles from "./HIstoryPage.styled";
-import { IHis, MyGlobalContext } from "../hooks/contextHook";
 
 export default function HistoryPage() {
   const [history, setHistory] = useState<IHis[]>([]);

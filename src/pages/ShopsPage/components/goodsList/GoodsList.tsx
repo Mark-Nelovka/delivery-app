@@ -1,8 +1,8 @@
-import { IItems } from "../../pages/ShopsPage";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHook";
-import { saveGoods } from "../../redux/basket/basketOperations";
+import { IItems } from "../../ShopsPage";
+import { useAppDispatch, useAppSelector } from "@hooks/reduxHook";
+import { saveGoods } from "@redux/basket/basketOperations";
 import * as styles from "./Goods.styled";
-import { Loader } from "../loader/Loader";
+import { Loader } from "@general/loader/Loader";
 
 interface IGoods {
   items: IItems[];
@@ -10,7 +10,7 @@ interface IGoods {
   state: string;
 }
 
-export const Goods = ({ items, activeShop, state }: IGoods) => {
+export default function Goods({ items, activeShop, state }: IGoods) {
   const dispatch = useAppDispatch();
   const goodsWithBasket = useAppSelector((state) => state.basket.goods);
 
@@ -105,4 +105,4 @@ export const Goods = ({ items, activeShop, state }: IGoods) => {
       )}
     </styles.GoodsContentContainer>
   );
-};
+}

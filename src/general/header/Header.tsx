@@ -1,6 +1,6 @@
-import * as styles from "./Header.styled";
-import { Container } from "../../styles/Container.styled";
 import { Link } from "react-router-dom";
+import { Container } from "@styles/Container.styled";
+import * as styles from "./Header.styled";
 
 export const Header = () => {
   return (

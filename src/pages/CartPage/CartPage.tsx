@@ -1,6 +1,5 @@
-import { Basket } from "../components/basket/Basket";
-import { Form } from "../components/form/Form";
-import { Container } from "../styles/Container.styled";
+import { Basket, Form } from "./components";
+import { Container } from "@styles/Container.styled";
 import * as styles from "./CartPage.styled";
 
 export default function CartPage() {

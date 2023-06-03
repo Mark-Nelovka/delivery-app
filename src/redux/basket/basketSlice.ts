@@ -34,7 +34,6 @@ const basketSlice = createSlice({
                   Notiflix.Notify.success(`${payload.goods[0].label} added to basket!`)
                  return {...el, count: checkProduct.count + 1}
                 }
-              Notiflix.Notify.info("Goods closed")
                 return el;
             })
             } else {

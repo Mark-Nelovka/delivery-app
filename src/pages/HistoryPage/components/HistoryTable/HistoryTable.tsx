@@ -1,4 +1,4 @@
-import { Loader } from "../../loader/Loader";
+import { Loader } from "@general/loader/Loader";
 import * as styles from "./HistoryTable.styled";
 
 interface ICartItems {
@@ -20,7 +20,7 @@ interface IHistoryTable {
   loading: boolean;
 }
 
-export const HistoryTable = ({ history, loading }: IHistoryTable) => {
+export default function HistoryTable({ history, loading }: IHistoryTable) {
   return (
     <styles.BascketContainer>
       <styles.BascketList>
@@ -50,4 +50,4 @@ export const HistoryTable = ({ history, loading }: IHistoryTable) => {
       </styles.BascketList>
     </styles.BascketContainer>
   );
-};
+}

@@ -1,7 +1,7 @@
 import Notiflix from "notiflix";
 import { useState } from "react";
-import getOrderHistory from "../../../api/getHistory";
-import { useGlobalContext } from "../../../hooks/contextHook";
+import getOrderHistory from "@api/getHistory";
+import { useGlobalContext } from "@hooks/contextHook";
 import * as styles from "./HistoryForm.styled";
 
 export default function HistoryForm() {
