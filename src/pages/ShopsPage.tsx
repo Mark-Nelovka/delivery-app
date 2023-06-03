@@ -26,7 +26,9 @@ export default function ShopsPage() {
     setState("loading");
     async function getShops() {
       try {
-        const result = await axios.get("http://localhost:8080/shops");
+        const result = await axios.get(
+          "https://plum-proud-camel.cyclic.app/shops"
+        );
         const parseResult = JSON.parse(result.data.data);
         setActiveShop(parseResult[0].shop_name);
         setState("success");
