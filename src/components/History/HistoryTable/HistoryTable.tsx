@@ -1,3 +1,4 @@
+import { Loader } from "../../loader/Loader";
 import * as styles from "./HistoryTable.styled";
 
 interface ICartItems {
@@ -16,12 +17,14 @@ interface IHis {
 
 interface IHistoryTable {
   history: IHis[];
+  loading: boolean;
 }
 
-export const HistoryTable = ({ history }: IHistoryTable) => {
+export const HistoryTable = ({ history, loading }: IHistoryTable) => {
   return (
     <styles.BascketContainer>
       <styles.BascketList>
+        {loading && <Loader />}
         {history &&
           history.length > 0 &&
           history.map((el, inx) => {
