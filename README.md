@@ -3,6 +3,9 @@ REACT_APP_PATH_BACKEND=https://plum-proud-camel.cyclic.app
 After that you can open terminal and run to command npm start
 App will be open in url: http://localhost:3000
 
+If you want watch already have been written orders you can go to history page and write in email field next email: alex_@ukr.net or example@gmail.com.
+Also you can find orders upon number phone: 0000000000 or 1111111111
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
