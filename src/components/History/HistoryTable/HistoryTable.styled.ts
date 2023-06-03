@@ -5,9 +5,11 @@ export const BascketContainer = styled.div`
   border-radius: 20px;
   padding: 20px;
   width: 49%;
+  
 `;
 
 export const BascketList = styled.ul`
+position: relative;
   display: flex;
   flex-direction: column;
   height: 500px;
