@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IItems } from "../../pages/ShopsPage";
-import { useAppSelector } from "../../redux/hook";
+import { useAppSelector } from "../../hooks/reduxHook";
 import { Loader } from "../loader/Loader";
 import * as styles from "./Shops.styled";
 
@@ -18,14 +18,11 @@ export const Shops = ({
   state,
 }: IShops) => {
   const [nameOnlyShopUse, setNameOnlyShopUse] = useState("");
-  const basketItems = useAppSelector((state) => state.basket.goods);
+  const basketItems = useAppSelector((state) => state.basket);
 
   useEffect(() => {
-    if (items.length > 0 && basketItems.length > 0) {
-      const chooseShop = items.find((el) =>
-        el.goods.find((it) => it.id === basketItems[0].id)
-      );
-      if (chooseShop) setNameOnlyShopUse(chooseShop.shop_name);
+    if (items.length > 0 && basketItems.shop_name !== "") {
+      setNameOnlyShopUse(basketItems.shop_name);
     }
   }, [basketItems, items]);
 
@@ -40,9 +37,12 @@ export const Shops = ({
                 onClick={changeActiveStore}
                 id={el.shop_name}
                 disabled={
-                  basketItems.length > 0 && el.shop_name !== nameOnlyShopUse
+                  basketItems.shop_name !== "" &&
+                  el.shop_name !== nameOnlyShopUse
                 }
-                active={el.shop_name !== activeShop}
+                active={
+                  basketItems.shop_name === "" && el.shop_name !== activeShop
+                }
                 key={el.shop_id}
               >
                 {el.shop_name}
