@@ -26,9 +26,8 @@ position: relative;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
-  max-height: 80vh;
+  height: 500px;
   overflow: scroll;
-  min-height: 70vh;
   padding: 20px 20px 20px 20px;
 `;
 

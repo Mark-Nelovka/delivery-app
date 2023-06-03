@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
-import { saveGoods, decrementGoods } from "./basketOperations";
+import { saveGoods, decrementGoods, clearGoods } from "./basketOperations";
 
 export interface IItemsForBasket {
   shop_id: number;
@@ -56,6 +56,11 @@ const basketSlice = createSlice({
               }
                
             }
+      },
+      [clearGoods.type]: (state, { payload }: PayloadAction<IItemsForBasket>) => {
+        state.shop_id = payload.shop_id;
+        state.shop_name = payload.shop_name;
+        state.goods = payload.goods;
         }
   }
   

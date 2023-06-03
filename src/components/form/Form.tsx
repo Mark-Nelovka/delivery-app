@@ -1,11 +1,13 @@
 import * as styles from "./Form.styled";
-import { useAppSelector } from "../../hooks/reduxHook";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHook";
 import React, { useState } from "react";
 import Notiflix from "notiflix";
-import axios from "axios";
+import createOrderForUser from "../../api/createOrder";
+import { clearGoods } from "../../redux/basket/basketOperations";
 
 export const Form = () => {
   const goodsState = useAppSelector((state) => state.basket.goods);
+  const dispatch = useAppDispatch();
   const [info, setInfo] = useState({
     name: "",
     email: "",
@@ -21,12 +23,13 @@ export const Form = () => {
     }));
   };
 
-  const handleSubmitForm = (e: React.FormEvent) => {
+  const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!goodsState.length) {
       Notiflix.Notify.info("Please, choose any products");
       return;
     }
+
     const date = new Date();
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -38,14 +41,19 @@ export const Form = () => {
       products: goodsState,
       date: formattedDate,
     };
-    axios
-      .post("http://localhost:8080/users", body)
-      .then((res) => {
-        console.log(res);
-        // setActiveShop(JSON.parse(res.data.data)[0].shop_name);
-        // setFirst(JSON.parse(res.data.data));
+    const checkCreateOrder = await createOrderForUser(body);
+    if (checkCreateOrder.code !== 200) {
+      Notiflix.Notify.failure(`${checkCreateOrder.message}`);
+      return;
+    }
+    Notiflix.Notify.success("Thank's for your order. We call you soon");
+    dispatch(
+      clearGoods({
+        shop_id: 0,
+        shop_name: "",
+        goods: [],
       })
-      .catch((er) => console.log(er));
+    );
   };
 
   return (

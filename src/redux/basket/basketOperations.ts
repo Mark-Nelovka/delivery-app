@@ -6,5 +6,7 @@ const saveGoods = createAction("basket/increment", (payload) => {
 const decrementGoods = createAction("basket/decrement", (payload ) => {
     return {payload};
 })
-
-export { saveGoods, decrementGoods };
+const clearGoods = createAction("basket/clear", (payload) => {
+    return {payload}
+})
+export { saveGoods, decrementGoods, clearGoods };

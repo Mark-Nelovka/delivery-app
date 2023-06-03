@@ -3,7 +3,7 @@ import * as styles from "./ShopsPage.styled";
 import { Container } from "../styles/Container.styled";
 import { Goods } from "../components/goodsList/GoodsList";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import getShopsWithProducts from "../api/getShops";
 
 export interface IItems {
   shop_id: number;
@@ -21,18 +21,14 @@ export default function ShopsPage() {
   const [data, setData] = useState<IItems[]>([]);
   const [state, setState] = useState("idle");
   const [activeShop, setActiveShop] = useState("");
-
   useEffect(() => {
     setState("loading");
     async function getShops() {
       try {
-        const result = await axios.get(
-          "https://plum-proud-camel.cyclic.app/shops"
-        );
-        const parseResult = JSON.parse(result.data.data);
-        setActiveShop(parseResult[0].shop_name);
+        const result = await getShopsWithProducts();
+        setActiveShop(result.data[0].shop_name);
         setState("success");
-        setData(parseResult);
+        setData(result.data);
       } catch (error) {
         setState("error");
       }
