@@ -9,7 +9,10 @@ const ErrorPage = lazy(
   () => import("./pages/ErrorPage/ErrorPage" /* Error page */)
 );
 const HistoryPage = lazy(
-  () => import("./pages/HistoryPage/HistoryPage" /* Error page */)
+  () => import("./pages/HistoryPage/HistoryPage" /* History page */)
+);
+const CouponsPage = lazy(
+  () => import("./pages/CouponsPage/CouponsPage" /* Coupons page */)
 );
 
 function App() {
@@ -21,6 +24,7 @@ function App() {
           <Route path="/" element={<ShopsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route path="/coupons" element={<CouponsPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Suspense>
